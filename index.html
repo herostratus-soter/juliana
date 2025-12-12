@@ -12,17 +12,22 @@
         body {
             font-family: 'Poiret One', sans-serif; 
             margin: 0;
-            height: 100vh;
+            /* Cambiado: Ya no necesitamos 100vh forzado si el contenido es largo */
+            min-height: 100vh; /* Asegura que el fondo cubra al menos toda la pantalla */
             
             /* Imagen de fondo */
             background-image: url('background.jpg');
             background-size: cover; 
             background-position: center; 
             
-            /* Centrado Flexbox: Centra el contenedor del desenfoque */
+            /* CÓDIGO CORREGIDO AQUÍ: */
+            /* 1. Mantenemos el centrado horizontal (justify-content: center;) */
+            /* 2. Quitamos 'align-items: center;' para que el contenido empiece arriba (o aplicamos un centrado vertical suave). */
             display: flex;
             justify-content: center;
-            align-items: center;
+            
+            /* Importante: Añadimos un poco de padding superior e inferior para evitar que el contenido toque los bordes */
+            padding: 30px 0; 
         }
 
         /* CONTENEDOR DE LA CAPA OSCURA Y EL DESENFOQUE */
@@ -64,12 +69,11 @@
             color: white; 
         }
         
-        /* *** CÓDIGO CORREGIDO AQUÍ: Aumentamos el grosor de la fuente *** */
         p {
             font-size: 1.2rem;
             color: #ccc; 
             margin-bottom: 30px;
-            font-weight: bold; /* Hace que el texto sea más audaz/grueso */
+            font-weight: bold; 
         }
         
         /* Contenedor Flexbox para los enlaces */
